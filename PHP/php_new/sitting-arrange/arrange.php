@@ -1,6 +1,7 @@
 <?php
-	include 'data.php';
-  class st_details
+  require_once('data.php');
+  
+  class arrange
   {
     public $name;
     public $gender;
@@ -10,18 +11,12 @@
       $this->name=$name;
       $this->gender=$gender;
     }
-    function getname()
-    {
-      return $this->name;
-    }
-    function getgender()
-    {
-      return $this->gender;
-    }
   }
+
+  $st_dt=[];
 	foreach ($student as $key=>$value)
 	{
-		$obj = new st_details($value['name'],$value['gender']);
+		$obj = new arrange($value['name'],$value['gender']);
 		$st_dt[]=$obj;
 	}
 
@@ -69,7 +64,7 @@
             
             $temp_gender=$st_dt[$key+1]->gender;
             $st_dt[$key+1]->gender=$st_dt[$key1]->gender;
-          	$st_dt[$key1]->gender=$temp_gender;
+            $st_dt[$key1]->gender=$temp_gender;
             break;
           } 
       	}
@@ -77,7 +72,5 @@
     	break;
   	}
   }
-  echo "<pre>";
-  print_r($st_dt);
-  echo "</pre>";
+
 ?>

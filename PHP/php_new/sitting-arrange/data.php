@@ -1,13 +1,13 @@
 <?php
   $student=[
   [ 'name'=>'a',
-    'gender'=>'female'
+    'gender'=>'male'
   ],
   [ 'name'=>'b',
-    'gender'=>'female'
+    'gender'=>'male'
   ],
   [ 'name'=>'c',
-    'gender'=>'female'
+    'gender'=>'male'
   ],
   [ 'name'=>'d',
     'gender'=>'male'
@@ -22,13 +22,13 @@
     'gender'=>'male'
   ],
   [ 'name'=>'h',
-    'gender'=>'male'
+    'gender'=>'female'
   ],
   [ 'name'=>'i',
-    'gender'=>'male'
+    'gender'=>'female'
   ],
   [ 'name'=>'j',
-    'gender'=>'male'
+    'gender'=>'female'
   ]
   ];
 ?>
