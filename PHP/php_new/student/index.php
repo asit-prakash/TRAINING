@@ -2,7 +2,7 @@
 require_once('subject.php');
 require_once('student.php');
 
-class display
+class index
 {
 
   function show_sub($grade)
@@ -33,6 +33,21 @@ class display
         print_r($value->marks);
         echo "</pre>";
 			}
+    }
+  }
+
+  function cal_mm($key1)
+  {
+    global $sub;
+    foreach ($sub as $key=>$value)
+    {
+      foreach ($value as $key2=>$value2)
+      {
+        if($value2->code == $key1)
+        {
+          return $value2->mm;
+        }
+      }
     }
   }
 
@@ -97,7 +112,17 @@ class display
           echo $grade;
         echo "</td>";
         echo "<td>";
-          echo $status;
+          foreach ($st as $key => $value)
+          {
+            if($value->id == $id)
+            {
+              foreach ($value->marks as $key1=>$value1)
+              {
+                //$mm=cal_mm($key1);
+                echo $key1 . "(" . $value1 . "," . $this->cal_mm($key1) . ")" . "<br>";
+              }
+            }
+          }
         echo "</td>";
         echo "<td>";
           echo $status;
@@ -107,7 +132,7 @@ class display
   }
 }
 
-$show = new display;
+$show = new index;
 $show->show_sub(10);
 $show->show_marks('st3');
 $show->result('st3');

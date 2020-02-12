@@ -5,7 +5,7 @@ require_once('document.php');
 class college
 {
   public $id;
-  private $name;
+  public $name;
   public $details=[];
   function __construct($id,$name) 
   {

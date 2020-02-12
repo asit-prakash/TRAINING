@@ -39,7 +39,7 @@ function setmarks($id)
   }
 }
 
-echo "<pre>";
+/*echo "<pre>";
 print_r($st);
-echo "</pre>";
+echo "</pre>";*/
  ?>
