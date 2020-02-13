@@ -1,6 +1,6 @@
 <?php
-require_once('data.php');
-require_once('arrange.php');
+require 'vendor/autoload.php';
+require_once('./execution/interchange.php');
 
 echo "<pre>";
 print_r($st_dt);

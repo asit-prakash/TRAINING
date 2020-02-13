@@ -1,17 +1,7 @@
 <?php
-require_once('data.php');
-
-class match
-{
-  public $team;
-  public $run;
-
-  function __construct($team,$total)
-  {
-    $this->team=$team;
-    $this->run=$total;
-  }
-}
+require './vendor/autoload.php';
+use Match\match;
+require_once('./execution/data.php');
 
 $match_dt=[];//array of objects for match
 $total=0;//total run scored in a match by a team
@@ -31,4 +21,3 @@ foreach($matches as $key=>$value)
 /*echo "<pre>";
 print_r($match_dt);
 echo "</pre>";*/
-?>

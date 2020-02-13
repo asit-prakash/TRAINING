@@ -1,18 +1,7 @@
 <?php
-require_once('data.php');
-
-class subject
-{
-	public $name;
-	public $code;
-	public $mm;
-  function __construct($name,$code,$mm)
-  {
-    $this->name=$name;
-    $this->code=$code;
-    $this->mm=$mm;
-  }
-}
+require './vendor/autoload.php';
+use Subj\subject;
+require_once('./execution/data.php');
 
 $sub=[];
 foreach ($subject as $key => $value) 
@@ -26,4 +15,3 @@ foreach ($subject as $key => $value)
 /*echo "<pre>";
 print_r($sub);
 echo "</pre>";*/
-?>

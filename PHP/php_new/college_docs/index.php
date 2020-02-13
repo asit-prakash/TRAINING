@@ -1,5 +1,5 @@
 <?php
-require_once('document.php');
+require_once('./execution/ob_doc.php');
 
 function show_dt()
 {

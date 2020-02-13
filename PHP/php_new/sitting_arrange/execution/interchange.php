@@ -1,26 +1,7 @@
 <?php
-  require_once('data.php');
-  
-  class arrange
-  {
-    public $name;
-    public $gender;
+require_once('./execution/ob_create.php');
 
-    function __construct($name,$gender)
-    {
-      $this->name=$name;
-      $this->gender=$gender;
-    }
-  }
-
-  $st_dt=[];
-	foreach ($student as $key=>$value)
-	{
-		$obj = new arrange($value['name'],$value['gender']);
-		$st_dt[]=$obj;
-	}
-
-  foreach ($st_dt as $key=>$value)
+foreach ($st_dt as $key=>$value)
 	{
     if ($st_dt[$key]->gender == 'female' && $st_dt[$key+1]->gender == 'female') 
     {
@@ -72,5 +53,4 @@
     	break;
   	}
   }
-
 ?>

@@ -1,6 +1,6 @@
 <?php
-require_once('subject.php');
-require_once('student.php');
+require_once('./execution/ob_subj.php');
+require_once('./execution/ob_std.php');
 
 class index
 {
@@ -133,7 +133,7 @@ class index
 }
 
 $show = new index;
-$show->show_sub(10);
-$show->show_marks('st3');
-$show->result('st3');
+$show->show_sub(12);
+$show->show_marks('st2');
+$show->result('st2');
 ?>

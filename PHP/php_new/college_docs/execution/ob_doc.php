@@ -1,34 +1,8 @@
 <?php
-require_once('college.php');
-require_once('data.php');
-
-class document
-{
-	private $name;
-	private $type;
-	private $college;
-	private $status;
-
-	function __construct($name,$type,$college,$sent)
-	{
-		$this->name=$name;
-		$this->type=$type;
-		$this->college=$college;
-		$this->status=$sent;
-	}
-	function getname()
-	{
-	return $this->name;
-	}
-	function gettype()
-	{
-		return $this->type;
-	}
-	function getsent()
-	{
-	return $this->sent;
-	}
-}
+require './vendor/autoload.php';
+use Doc\document;
+require_once('./execution/data.php');
+require_once('./execution/ob_clg.php');
 
 $doc_dt=[];//array of objects for document details
 //document objects
@@ -58,5 +32,3 @@ function fun($id,$name,$type,$status,$key1)
 		}
 	}
 }
-
-?>

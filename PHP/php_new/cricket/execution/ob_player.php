@@ -1,17 +1,7 @@
 <?php
-require_once('data.php');
-
-class player
-{
-  public $match_id;
-  public $run;
-
-  function __construct($match_id,$run)
-  {
-    $this->match_id=$match_id;
-    $this->run=$run;
-  }
-}
+require './vendor/autoload.php';
+use Players\player;
+require_once('./execution/data.php');
 
 $players = [];//array of object for player
 foreach($matches as $key=>$value)
@@ -28,4 +18,3 @@ foreach($matches as $key=>$value)
 /*echo "<pre>";
 print_r($players);
 echo "</pre>";*/
-?>

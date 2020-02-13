@@ -1,6 +1,6 @@
 <?php
-require_once('player.php');
-require_once('match.php');
+require_once('./execution/ob_player.php');
+require_once('./execution/ob_match.php');
 
 class index
 {
