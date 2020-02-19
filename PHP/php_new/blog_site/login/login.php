@@ -24,9 +24,10 @@
     name="login"
     id="login"
     value="Login">
-    <a href="../forget_pwd/forget_password.php">Forget Password</a>
+    <a href="../forget_pwd/forget.php">Forget Password</a>
     Never have been here before?
     <a href="../register/register.php">Register Here</a>
+    <a href="../index.php">Continue</a> without login
   </form>
   <?php require_once('validation.php');?>
   </body>

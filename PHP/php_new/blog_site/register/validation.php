@@ -1,25 +1,30 @@
 <?php
+require_once('../session_info.php');
 $nameErr = $usernameErr = $contactErr = $emailErr = $passwordErr =  "";
 $name = $user_name = $contact =  $email = $pass_word = $confirm =  "";
 $name_check = $username_check = $contact_check = $email_check = $password_check = "";
+$err_flag=0;
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $name = test_input($_POST["fullname"]);
   $name_check=preg_match("/^[a-zA-Z]+(\ [a-zA-Z]+)?$/",$name);
   if (!$name_check) {
-	  $nameErr = "Only letters are allowed";
+    $nameErr = "Only letters are allowed";
+    $err_flag++;
   }
 
   $user_name = test_input($_POST["username"]);
 	$username_check=preg_match("/^[A-Za-z@\-_0-9]+$/",$user_name);
 	if (!$username_check) {
-		$usernameErr = "Only letters,numbers and '@','_','-' are allowed";
+    $usernameErr = "Only letters,numbers and '@','_','-' are allowed";
+    $err_flag++;
   }
   
   $contact=test_input($_POST["contact"]);
   if(!empty($contact)) {
     if (!preg_match("/^[+]{1}[9]{1}[1]{1}[1-9]{1}[0-9]{9}$/",$contact)) {
     $contactErr = "Enter a valid contact number";
+    $err_flag++;
     }
   }
   
@@ -27,7 +32,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	$email=test_input($email);
 	$email = filter_var($email, FILTER_SANITIZE_EMAIL);
 	if (filter_var($email, FILTER_VALIDATE_EMAIL) === false) {
-		$emailErr="Enter a valid email address";
+    $emailErr="Enter a valid email address";
+    $err_flag++;
   }
   
   $pass_word=$_POST["password"];
@@ -36,6 +42,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $confirm=test_input($confirm);
   if($pass_word != $confirm) {
     $passwordErr="Password didn't matched,try again";
+    $err_flag++;
   }
 }
 

@@ -13,6 +13,7 @@
     placeholder="Enter Fullname"
     name="fullname"
     id="fullname"
+    title="only letters allowed"
     required>
   <span class="error">* <?php echo $nameErr;?></span>
   <input
@@ -21,6 +22,7 @@
     name="username"
     maxlength="15"
     id="username"
+    title="Only letters,numbers and '@','_','-' are allowed"
     required>
   <span class="error">* <?php echo $usernameErr;?></span>
     <input 
@@ -29,6 +31,7 @@
     id="contact" 
     maxlength="14"
     pattern="[+]{1}[9]{1}[1]{1}[1-9]{1}[0-9]{9}"
+    title="start with +91"
 		placeholder="start with +91">
   <span class="error">* <?php echo $contactErr;?></span>
     <input 
@@ -37,6 +40,7 @@
     id="email" 
     maxlength="320"
 		placeholder="Enter Email"
+    title="Enter your email"
     required>
   <span class="error">* <?php echo $emailErr;?></span>
     <input
@@ -44,12 +48,14 @@
     placeholder="Enter Password"
     name="password"
     id="password"
+    title="enter a strong password"
     required>
     <input
     type="password"
     placeholder="Confirm Password"
     name="confirm"
     id="confirm"
+    title="Re-enter your password"
     required>
   <span class="error">* <?php echo $passwordErr;?></span>
     <input
