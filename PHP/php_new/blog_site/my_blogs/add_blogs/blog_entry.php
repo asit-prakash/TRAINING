@@ -1,4 +1,5 @@
 <?php
+ob_start();
 require_once('../../db_connection/mysql.php');
 if($_SERVER["REQUEST_METHOD"] == "POST") {
   //session_start();

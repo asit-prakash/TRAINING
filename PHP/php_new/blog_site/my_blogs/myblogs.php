@@ -63,7 +63,7 @@ require_once('user_active.php');
                   echo "<button class='btn btn-primary' type='submit' id='edit' name='edit'>Edit</button>";
                   echo "<button class='btn btn-primary' type='submit' name='delete'>Delete</button>";
                   echo "</form>";
-                echo "</div>";
+                // echo "</div>";
               echo "</div>";
               echo "</div>";
             }

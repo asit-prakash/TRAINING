@@ -70,8 +70,6 @@ if($run) {
           echo "By: ".$author;
         echo "</div>";
       }
-      
-
     }
   }     
 }

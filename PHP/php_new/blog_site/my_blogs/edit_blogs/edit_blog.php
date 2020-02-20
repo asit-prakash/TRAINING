@@ -1,4 +1,5 @@
 <?php
+ob_start();
 require_once('../user_active.php');
 require_once('./get_edits.php');
 ?>
@@ -75,7 +76,7 @@ require_once('./get_edits.php');
       class="btn btn-primary "
       value='Update'>
     </form>
-    <?php echo "<img  src='".'../../'.$data['IMAGE']."'>"; ?>
+    <?php echo "<img style='width:300px;' src='".'../../'.$data['IMAGE']."'>"; ?>
     <?php
     require_once('./update_edits.php');
     ?>
