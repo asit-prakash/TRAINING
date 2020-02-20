@@ -8,55 +8,73 @@ if(!isset($_SESSION['username']) && !isset($_SESSION['password'])) {
 <!DOCTYPE html>
 <html>
   <head>
+  <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="../../style.css">
     <title>
-      My Blogs
+      Add Blogs
     </title>
   </head>
   <body>
-    <div class="nav">
-      <ul>
-        <li>
+  <div class="container">
+      <ul class="nav nav-pills">
+      <li class="nav-item">
+          <?php
+          if(isset($_SESSION['username']) && isset($_SESSION['password'])){ ?>
+            <a class="nav-link"  href="../../logout/logout.php">Logout</a>
+          <?php }else{ ?>
+            <a class="nav-link"  href=".../../login/login.php">Login</a>
+          <?php } ?>
+          </li>
           <?php 
           if(isset($_SESSION['username']) && isset($_SESSION['password'])){ ?>
-            <a href="../../logout/logout.php">Logout</a>
-          <?php }else{ ?>
-            <a href="../../login/login.php">Login</a>
+            <li class="nav-item">
+          <a class="nav-link" href="../myblogs.php">My Blogs</a>
+          </li>
           <?php } ?>
-          <a href="../myblogs.php">My Blogs</a>
-          <a href="../../index.php">Home</a>
-        </li>
+        
+          <li class="nav-item">
+          <a class="nav-link"  href="../../index.php">Home</a>
+          </li>
       </ul>
-    </div>
     <?php require_once('./image_validate.php'); ?>
-    <form method="POST" enctype="multipart/form-data" action="">
-    Enter Title:
+    <form class="form-group" method="POST" enctype="multipart/form-data" action="">
+    <label for="title">Enter Title:</label>
     <input
       type="text"
       name='title'
       id='title'
+      class="form-control"
       placeholder="Title goes here"
       required>
-    Enter Content:
+    <label for="content">Enter Content:</label>
     <textarea 
-      rows='20'
-      cols='100'
+      rows='15'
+      cols='40'
       name='content'
       id='content'
+      class="form-control"
       placeholder='Content goes here'
       required></textarea>
-    Upload Image: 
-    <input 
-      type="file" 
+    <label for="fileToUpload">Upload Image: </label>
+    <input
+      type="file"
       name="fileToUpload" 
-      id="fileToUpload">
+      id="fileToUpload"
+      class="form-control">
     <span class="error">* <?php echo $imageErr;?></span>
     <input
       type='submit'
       name='submit'
       id='submit'
-      value='Submit'>
+      class="btn btn-primary "
+      value='Post'>
     </form>
     <?php require_once('./blog_entry.php'); ?>
+  </div>
   </body>
 </html>

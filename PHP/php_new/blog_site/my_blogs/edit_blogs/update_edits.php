@@ -8,7 +8,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
   $run_updates=mysqli_query($conn, $update);
   if ($run_updates) {
     echo "Your blog is successfully updated";
-    header ('Refresh: 3; URL=../myblogs.php');
+    header ('Refresh: 2; URL=../myblogs.php');
 	}
 	else {
 		echo "Error: " . $run_updates . "" . mysqli_error($conn) . "<br>";		

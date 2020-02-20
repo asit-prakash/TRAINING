@@ -1,7 +1,7 @@
 <?php
   require_once('../../db_connection/mysql.php');
   $id=$_SESSION['id'];
-  $fetch="SELECT TITLE,CONTENT FROM BLOG_DATA WHERE ID=$id";
+  $fetch="SELECT TITLE,CONTENT,IMAGE FROM BLOG_DATA WHERE ID=$id";
   $fetch_data=mysqli_query($conn, $fetch);
   if($fetch_data) {
     $count=mysqli_num_rows($fetch_data);

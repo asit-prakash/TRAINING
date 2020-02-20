@@ -1,22 +1,70 @@
-*{
-  margin:0;
-  padding:0;
+
+.container {
+  max-width:100%;
 }
-.nav {
-  width:100%;
-  background-color:gray;
-  float:left;
+.card {
+  float: left;
+  margin: 10px;
+  width:300px;
 }
-a {
-  float:right;
-  text-decoration:none;
-  list-style:none;
-  padding:10px;
-  color:white;
+.card-img {
+  width:298px;
 }
-.teaser {
-  float:left;
+.card-img-top {
+  width:170px;
 }
-.blog {
-  padding:10px;
+.btn {
+  float: right;
+  margin-left: 5px;
+}
+.nav{
+  background-color: lightblue;
+}
+.error {
+  color: red;
+}
+label {
+  margin-top: 10px;
+}
+.login-content {
+  width: 300px;
+  top:50%;
+  left: 50%;
+  transform: translate3d(-50%,-50%, 0);
+  position: absolute;
+}
+.register-content {
+  width: 450px;
+  top:50%;
+  left: 50%;
+  transform: translate3d(-50%,-50%, 0);
+  position: absolute;
+}
+h2 {
+  text-align: center;
+}
+h1 {
+  text-align: center;
+  margin-top: 10px;
+}
+.show-img {
+  display: flex;
+  justify-content: center;
+}
+.show-image {
+  margin-top: 20px;
+  width: 800px;
+  height: 300px;
+}
+.show-content {
+  padding: 25px;
+  margin-top: 25px;
+}
+.show-date {
+  float: right;
+  margin-right: 25px;
+}
+.show-author {
+  float: right;
+  margin-right: 25px;
 }
