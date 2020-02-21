@@ -51,6 +51,7 @@ require_once('./get_edits.php');
       type="text"
       name='title'
       id='title'
+      maxlength="100"
       class="form-control"
       value='<?php echo $title; ?>'
       required>
@@ -68,7 +69,7 @@ require_once('./get_edits.php');
       name="fileToUpload" 
       id="fileToUpload"
       class="form-control">
-    <span class="error">* <?php echo $imageErr;?></span>
+    <span class="error"><?php echo $imageErr;?></span>
     <input
       type='submit'
       name='submit'

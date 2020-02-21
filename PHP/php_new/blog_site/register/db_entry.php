@@ -1,5 +1,8 @@
 <?php
+require '../vendor/autoload.php';
+use blogger\user;
 require_once('../db_connection/mysql.php');
+
 if($_SERVER["REQUEST_METHOD"] == "POST") {
   $username_ok=1;
   $email_ok=1;
@@ -24,7 +27,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
   }
 
   if($err_flag==0 && $username_ok==1 && $email_ok==1) {
-    $query3="INSERT INTO USER_DETAILS VALUES ('$user_name','$pass_word','$contact','$email','$name')";
+    $obj=new user($user_name,$pass_word,$contact,$email,$name);
+    $query3="INSERT INTO USER_DETAILS VALUES ('".$obj->get_username()."','".$obj->get_password()."','".$obj->get_contact()."','".$obj->get_email()."','".$obj->get_name()."')";
     $sql3=mysqli_query($conn, $query3);
     if ($sql3) {
       //echo "New record created successfully in USER_DETAILS!" . "<br>";

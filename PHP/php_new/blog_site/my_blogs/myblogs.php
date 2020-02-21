@@ -1,4 +1,5 @@
 <?php
+ob_start();
 require_once('user_active.php');
 ?>
 <!DOCTYPE html>
@@ -73,12 +74,12 @@ require_once('user_active.php');
           }
         }
         if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['read'])) {
-          session_start();
+          //session_start();
           $_SESSION['id']=$_POST['pass_id'];
           header("Location:../show_blog.php");
         }
         elseif($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['edit'])) {
-          session_start();
+          //session_start();
           $_SESSION['id']=$_POST['pass_id'];
           header("Location:./edit_blogs/edit_blog.php");
         }

@@ -1,5 +1,5 @@
 <?php
-//require_once('../my_blogs/user_active.php');
+ob_start();
 session_start();
 if(!isset($_SESSION['username']) && !isset($_SESSION['password'])) {
   header("Location:../../login/login.php");
@@ -36,7 +36,6 @@ if(!isset($_SESSION['username']) && !isset($_SESSION['password'])) {
           <a class="nav-link" href="../myblogs.php">My Blogs</a>
           </li>
           <?php } ?>
-        
           <li class="nav-item">
           <a class="nav-link"  href="../../index.php">Home</a>
           </li>
@@ -48,6 +47,7 @@ if(!isset($_SESSION['username']) && !isset($_SESSION['password'])) {
       type="text"
       name='title'
       id='title'
+      maxlength="100"
       class="form-control"
       placeholder="Title goes here"
       required>
@@ -66,7 +66,7 @@ if(!isset($_SESSION['username']) && !isset($_SESSION['password'])) {
       name="fileToUpload" 
       id="fileToUpload"
       class="form-control">
-    <span class="error">* <?php echo $imageErr;?></span>
+    <span class="error"><?php echo $imageErr;?></span>
     <input
       type='submit'
       name='submit'

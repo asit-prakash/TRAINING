@@ -13,37 +13,36 @@
     </title>
   </head>
   <body>
-  <div class="container">
-    <ul class="nav nav-pills">
-      <li class="nav-item">
+    <div class="container">
+      <ul class="nav nav-pills">
+        <li class="nav-item">
+          <?php 
+          session_start();
+          if(isset($_SESSION['username']) && isset($_SESSION['password'])){ ?>
+          <a class="nav-link"  href="./logout/logout.php">Logout</a>
+          <?php }else{ ?>
+          <a class="nav-link"  href="./login/login.php">Login</a>
+          <?php } ?>
+        </li>
         <?php 
-        session_start();
         if(isset($_SESSION['username']) && isset($_SESSION['password'])){ ?>
-        <a class="nav-link"  href="./logout/logout.php">Logout</a>
-        <?php }else{ ?>
-        <a class="nav-link"  href="./login/login.php">Login</a>
-        <?php } ?>
-      </li>
-      <?php 
-      if(isset($_SESSION['username']) && isset($_SESSION['password'])){ ?>
-      <li class="nav-item">
-        <a class="nav-link " href="./my_blogs/myblogs.php">My Blogs</a>
-      </li>
-      <?php }?>
-      <?php 
-      if(isset($_SESSION['username']) && isset($_SESSION['password'])){ ?>
-      <li class="nav-item">
-        <a class="nav-link" href="./my_blogs/add_blogs/add_blogs.php">Add Blog</a>
-      </li>
-      <?php }?>
-      <li class="nav-item">
-        <a class="nav-link"  href="./index.php">Home</a>
-      </li>
+        <li class="nav-item">
+          <a class="nav-link " href="./my_blogs/myblogs.php">My Blogs</a>
+        </li>
+        <?php }?>
+        <?php 
+        if(isset($_SESSION['username']) && isset($_SESSION['password'])){ ?>
+        <li class="nav-item">
+          <a class="nav-link" href="./my_blogs/add_blogs/add_blogs.php">Add Blog</a>
+        </li>
+        <?php }?>
+        <li class="nav-item">
+          <a class="nav-link"  href="./index.php">Home</a>
+        </li>
       </ul>
-      </div>
+    </div>
   </body>
 </html>
-
 <?php
 require_once('./db_connection/mysql.php');
 $id=$_SESSION['id'];
@@ -52,25 +51,29 @@ $run=mysqli_query($conn, $get_con);
 if($run) {
   $count=mysqli_num_rows($run);
   if($count>0) {
-    while($content=mysqli_fetch_assoc($run)) {
-      echo "<h1>".$content['TITLE']."</h1>";
-      echo "<div class='show-img'>";
-        echo "<img class='show-image' src='".$content['IMAGE']."'>";
-      echo "</div>";
-      echo "<div class='show-content'>";
-        echo $content['CONTENT'];
-      echo "</div>";
-      $date = date('d/m/Y', $content['BLOG_DATE']);
-      echo "<div class='show-date'>";
-        echo "Last Edit: ".$date;
-      echo "</div>";
-      if(isset($_SESSION['username']) && isset($_SESSION['password'])) {
-        $author=$_SESSION['name'];
-        echo "<div class='show-author'>";
-          echo "By: ".$author;
-        echo "</div>";
-      }
+    while($content=mysqli_fetch_assoc($run)) { ?>
+      <html>
+        <h1><?php $content['TITLE'] ?></h1>
+        <div class='show-img'>
+          <?php echo "<img class='show-image' src='".$content['IMAGE']."'>"; ?>
+        </div>
+        <div class='show-content'>
+          <?php echo $content['CONTENT']; ?>
+        </div>
+        <?php $date = date('d/m/Y', $content['BLOG_DATE']); ?>
+        <div class='show-date'>
+          <?php echo "Last Edit: ".$date; ?>
+        </div>
+        <?php
+          if(isset($_SESSION['username']) && isset($_SESSION['password'])) {
+            $author=$_SESSION['name'];
+        ?>
+        <div class='show-author'>
+          <?php echo "By: ".$author; ?>
+        </div>
+      </html>
+      <?php
+          }
     }
-  }     
+  }
 }
-?>
