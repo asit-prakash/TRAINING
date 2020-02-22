@@ -1,0 +1,10 @@
+{
+  "autoload":
+  {
+    "psr-4":
+    {
+      "user\\": "./model/login",
+      "dbcon\\": "./model/db_conn"
+    }
+  }
+}
