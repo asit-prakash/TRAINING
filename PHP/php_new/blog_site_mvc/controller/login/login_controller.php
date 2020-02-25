@@ -8,6 +8,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
 
   $user_name=$_POST['username'];
   $pass_word=$_POST['password'];
+  $pass_word=hash('sha512',$pass_word);
 
   $obj_db=new db_conn;
   $access=$obj_db->open_db_conn();

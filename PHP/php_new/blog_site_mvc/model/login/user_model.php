@@ -56,6 +56,20 @@ class user_model extends db_conn {
     return $this->username_ok;
   }
 
+  public function username_avail($user_name) {
+    $check_uname="SELECT * FROM USER_DETAILS WHERE USERNAME='$user_name'";
+    $query_uname=mysqli_query($this->access, $check_uname);
+    if($query_uname) {
+      $count=mysqli_num_rows($query_uname);
+      if($count==1) {
+        return true;
+      }
+      else {
+        return false;
+      }
+    }
+  }
+
   public function register_user($user_name,$pass_word,$contact,$email,$name) {
     $this->user_name=$user_name;
     $this->pass_word=$pass_word;

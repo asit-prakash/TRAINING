@@ -10,6 +10,7 @@ require_once('../../controller/edit_blogs/editblogs_controller.php');
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="../assets/style.css?v=1">
+    <script src="https://cdn.ckeditor.com/4.13.1/standard/ckeditor.js?v=1"></script>
     <title>
       Edit Blog
     </title>
@@ -59,6 +60,7 @@ require_once('../../controller/edit_blogs/editblogs_controller.php');
       id='content'
       class="form-control"
       required><?php echo $content; ?></textarea>
+      <script>CKEDITOR.replace( 'content' );</script>
     <label for="fileToUpload">Upload Image: </label>
     <input 
       type="file" 

@@ -10,7 +10,22 @@ $name = $user_name = $contact =  $email = $pass_word = $confirm =  "";
 $name_check = $username_check = $contact_check = $email_check = $password_check = "";
 $err_flag=0;
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if(isset($_POST['username']) && !isset($_POST['register'])){
+  $user_name=$_POST['username'];
+  $obj_db=new db_conn;
+  $access=$obj_db->open_db_conn();
+  $obj = new user_model($access);
+  $availability=$obj->username_avail($user_name);
+  if($availability == true) {
+    $response="not available";
+  }
+  else {
+    $response="available";
+  }
+  echo $response;
+}
+
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['register'])) {
   $name = test_input($_POST["fullname"]);
   $name_check=preg_match("/^[a-zA-Z]+(\ [a-zA-Z]+)?$/",$name);
   if (!$name_check) {
@@ -53,7 +68,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   if($err_flag==0) {
     $obj_db=new db_conn;
     $access=$obj_db->open_db_conn();
-    // $obj=new new_user_model();
     $obj = new user_model($access);
     if($obj->user_exist($user_name) == 1 && $obj->email_exist($email,$access) == 1) {
       $usernameErr = "Username already exists";
@@ -67,6 +81,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
   }
   if($err_flag==0 && !$obj->user_exist($user_name) == 1 && !$obj->email_exist($email) == 1) {
+    $pass_word=hash('sha512',$pass_word);
     $register_ok=$obj->register_user($user_name,$pass_word,$contact,$email,$name);
     if($register_ok == true) {
       //echo "New record created successfully in USER_DETAILS!" . "<br>";
