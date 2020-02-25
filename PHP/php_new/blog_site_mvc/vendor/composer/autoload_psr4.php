@@ -8,4 +8,5 @@ $baseDir = dirname($vendorDir);
 return array(
     'user\\' => array($baseDir . '/model/login'),
     'dbcon\\' => array($baseDir . '/model/db_conn'),
+    'blog\\' => array($baseDir . '/model/blogs'),
 );

@@ -4,7 +4,9 @@
     "psr-4":
     {
       "user\\": "./model/login",
+      "blog\\": "./model/blogs",
       "dbcon\\": "./model/db_conn"
+      
     }
   }
 }

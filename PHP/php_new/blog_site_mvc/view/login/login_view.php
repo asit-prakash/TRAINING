@@ -1,3 +1,4 @@
+<?php require_once('../../controller/login/login_controller.php'); ?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -7,7 +8,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="../style.css">
+    <link rel="stylesheet" type="text/css" href="../assets/style.css?v=1">
     <title>
       LOGIN PAGE
     </title>
@@ -15,6 +16,11 @@
   <body>
   <div class="login-content">
     <h2>LOGIN</h2>
+    <?php if(isset($invalid)) { ?>
+    <div class="alert alert-danger">
+      <?php echo $invalid ?>
+    </div>
+    <?php } ?>
       <form class="form-group" id="loginform" method="post" action="" >
       <label for="username">Enter Username:</label>
       <input
@@ -42,13 +48,12 @@
           <a href="../forget_pwd/forget.php">Forget Password</a>
         </div> -->
         <div class="continue">
-          <a href="../index.php">Continue Without Login</a>
+          <a href="../home/index.php">Continue Without Login</a>
         </div>
         <div class="register">
-          <a href="../register/register.php">Register Here</a>
+          Never have been here before? <a href="../register/register_view.php">Register Here</a>
         </div>
       </form>
-      <?php require_once('../../controller/login/login_controller.php'); ?>
   </div>
   </body>
 </html>
