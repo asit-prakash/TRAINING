@@ -1,10 +1,10 @@
 <?php
 ob_start();
-session_start();
+//session_start();
 if(!isset($_SESSION['username']) && !isset($_SESSION['password'])) {
-  header("Location:../login/login_view.php");
+  header("Location:http://www.site.com/Training/PHP/php_new/blog_site_mvc/index.php/login");
 }
-require '../../vendor/autoload.php';
+require './vendor/autoload.php';
 use dbcon\db_conn;
 use blog\blogs_model;
 
@@ -21,12 +21,12 @@ if($posts == false) {
 if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['read'])) {
   //session_start();
   $_SESSION['id']=$_POST['pass_id'];
-  header("Location:../../view/read_blog/read_blog_view.php");
+  header("Location:http://www.site.com/Training/PHP/php_new/blog_site_mvc/index.php/readblog");
 }
 elseif($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['edit'])) {
   //session_start();
   $_SESSION['id']=$_POST['pass_id'];
-  header("Location:../../view/edit_blogs/edit_blog_view.php");
+  header("Location:http://www.site.com/Training/PHP/php_new/blog_site_mvc/index.php/editblog");
 }
 elseif($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['delete'])) {
   $_SESSION['id']=$_POST['pass_id'];
@@ -34,9 +34,10 @@ elseif($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['delete'])) {
   $delete=$obj_model->delete_blog($id);
   if ($delete == true) {
     $del_succ="Blog deleted successfully";
-    header ('Refresh: 2; URL=../../view/my_blogs/my_blogs_view.php');
+    header ('Refresh: 2; URL=http://www.site.com/Training/PHP/php_new/blog_site_mvc/index.php/myblogs');
   }
   else {
     echo $delete;
   }
 }
+require_once('./view/my_blogs/my_blogs_view.php');

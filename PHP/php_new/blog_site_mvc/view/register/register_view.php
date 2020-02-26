@@ -7,16 +7,14 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="../assets/style.css?v=1">
+    <link rel="stylesheet" type="text/css" href="../view/assets/style.css?v=1">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script type="text/javascript" src="../assets/user_avail.js"></script>
     <title>
       REGISTER PAGE
     </title>
   </head>
   <body>
   <div class="register-content">
-    <?php require_once('../../controller/register/register_controller.php');?>
     <h2>REGISTER HERE</h2>
       <form class="form-group" id="registerform" method="post" action="" >
         <?php if(isset($success)) { ?>
@@ -30,6 +28,7 @@
         type="text"
         placeholder="Enter Fullname"
         name="fullname"
+        maxlength="20"
         id="fullname"
         title="only letters allowed"
         class="form-control"
@@ -94,10 +93,10 @@
         class="btn btn-primary "
         value="Register">
         <div class="login-link">
-          Already a user? <a href="../login/login_view.php">Login</a>
+          Already a user? <a href="http://www.site.com/Training/PHP/php_new/blog_site_mvc/index.php/login">Login</a>
         </div>
       </form>
-      
-  </div> 
+  </div>
+  <!-- <script type="text/javascript" src="../view/assets/user_avail.js?v=1"></script> -->
   </body>
 </html>

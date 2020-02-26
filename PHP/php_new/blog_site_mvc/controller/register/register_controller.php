@@ -1,8 +1,7 @@
 <?php
-require_once('../../archive/session_info.php');
-require '../../vendor/autoload.php';
+//session_start();
+require './vendor/autoload.php';
 use dbcon\db_conn;
-require '../../vendor/autoload.php';
 use user\user_model;
 
 $nameErr = $usernameErr = $contactErr = $emailErr = $passwordErr =  "";
@@ -86,7 +85,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['register'])) {
     if($register_ok == true) {
       //echo "New record created successfully in USER_DETAILS!" . "<br>";
       $success="You are successfully registered, you will be redirected to login page";
-      header ('Refresh: 3; URL=../../view/login/login_view.php');
+      header ('Refresh: 3; URL=http://www.site.com/Training/PHP/php_new/blog_site_mvc/index.php/login');
     }
     else {
       echo "Error: " . $sql3 . "" . $register_ok . "<br>";
@@ -100,4 +99,4 @@ function test_input($data) {
 	$data = htmlspecialchars($data);//convert special characters into html entities
   return $data;//return pure data
 }
-
+require_once('./view/register/register_view.php');

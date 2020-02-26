@@ -3,7 +3,7 @@ $(document).ready(function(){
     var username = $(this).val().trim();
     if(username != ''){
       $.ajax({
-        url: '../../controller/register/register_controller.php',
+        url: '../controller/register/register_controller.php',
         type: 'post',
         data: {username: username},
         success: function(response){

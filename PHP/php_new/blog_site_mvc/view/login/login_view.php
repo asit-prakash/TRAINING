@@ -1,4 +1,3 @@
-<?php require_once('../../controller/login/login_controller.php'); ?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -8,7 +7,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="../assets/style.css?v=1">
+    <link rel="stylesheet" type="text/css" href="../view/assets/style.css?v=1">
     <title>
       LOGIN PAGE
     </title>
@@ -48,10 +47,10 @@
           <a href="../forget_pwd/forget.php">Forget Password</a>
         </div> -->
         <div class="continue">
-          <a href="../home/index.php">Continue Without Login</a>
+          <a href="http://www.site.com/Training/PHP/php_new/blog_site_mvc/index.php/home">Continue Without Login</a>
         </div>
         <div class="register">
-          Never have been here before? <a href="../register/register_view.php">Register Here</a>
+          Never have been here before? <a href="http://www.site.com/Training/PHP/php_new/blog_site_mvc/index.php/register">Register Here</a>
         </div>
       </form>
   </div>

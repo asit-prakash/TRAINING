@@ -1,6 +1,6 @@
 <?php
 namespace blog;
-require '../../vendor/autoload.php';
+require './vendor/autoload.php';
 use dbcon\db_conn;
 
 class blogs_model extends db_conn {

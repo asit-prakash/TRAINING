@@ -1,4 +1,4 @@
 <?php
-session_start();
+//session_start();
 session_destroy();
-header('Location:../../view/login/login_view.php');
+header('Location:http://www.site.com/Training/PHP/php_new/blog_site_mvc/index.php/login');

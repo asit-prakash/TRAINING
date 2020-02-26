@@ -1,6 +1,6 @@
 <?php
-session_start();
-require '../../vendor/autoload.php';
+//session_start();
+require './vendor/autoload.php';
 use dbcon\db_conn;
 use blog\blogs_model;
 
@@ -19,6 +19,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['read'])) {
   // echo '<script type="text/javascript">';
   // echo "window.location.href='./show_blog.php';";
   // echo '</script>';
-  header("Location:../../view/read_blog/read_blog_view.php");
+  header("Location:http://www.site.com/Training/PHP/php_new/blog_site_mvc/index.php/readblog");
   exit();
 }
+require_once('./view/home/index.php');

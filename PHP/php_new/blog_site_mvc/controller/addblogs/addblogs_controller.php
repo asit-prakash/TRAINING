@@ -1,11 +1,7 @@
 <?php
 ob_start();
-session_start();
-if(!isset($_SESSION['username']) && !isset($_SESSION['password'])) {
-  header("Location:../login/login_view.php");
-}
-
-require '../../vendor/autoload.php';
+//session_start();
+require './vendor/autoload.php';
 use dbcon\db_conn;
 use blog\blogs_model;
 
@@ -14,7 +10,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 	$image_path='';
 	$filename=$_FILES["fileToUpload"]["name"];
 	$temp_filename=$_FILES["fileToUpload"]["tmp_name"];
-	$target_dir = "../assets/uploads/".$filename;
+	$target_dir = "./view/assets/uploads/".$filename;
 	$target_file = $target_dir . basename($filename);
 	$uploadOk = 1;
 	$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
@@ -38,13 +34,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 		}
 	}
 	else {
-		$image_path="../assets/uploads/default.jpeg";
+		$image_path="../view/assets/uploads/default.jpeg";
 		$uploadOk = 1;
 		//$imageErr="Please choose an image file";
 	}
 	if($image_path=="") {
 		if ($uploadOk == 1) {
-			$image_path="../assets/uploads/".$_FILES["fileToUpload"]["name"];
+			$image_path="../view/assets/uploads/".$_FILES["fileToUpload"]["name"];
 			if (move_uploaded_file($temp_filename, $target_dir)) {
 				//echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
 			}
@@ -74,9 +70,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && $imageErr=="") {
   $add=$obj_model->add_blog($title,$author,$content,$timestamp,$user_name,$image_path);
     if ($add == true) {
     echo "New blog created successfully";
-    header ('Refresh: 1; URL=../my_blogs/my_blogs_view.php');
+    header ('Refresh: 2; URL=http://www.site.com/Training/PHP/php_new/blog_site_mvc/index.php/myblogs');
     }
     else {
     echo "Error: " . $run_sql . "" . mysqli_error($conn) . "<br>";		
     }
 }
+require_once('./view/add_blogs/add_blogs_view.php');

@@ -1,4 +1,3 @@
-<?php require_once('../../controller/addblogs/addblogs_controller.php'); ?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -8,7 +7,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="../assets/style.css?v=1">
+    <link rel="stylesheet" type="text/css" href="../view/assets/style.css?v=1">
     <script src="https://cdn.ckeditor.com/4.13.1/standard/ckeditor.js?v=1"></script>
     <title>
       Add Blogs
@@ -20,19 +19,19 @@
       <li class="nav-item">
           <?php
           if(isset($_SESSION['username']) && isset($_SESSION['password'])){ ?>
-            <a class="nav-link"  href="../../controller/logout/logout_controller.php">Logout</a>
+            <a class="nav-link"  href="http://www.site.com/Training/PHP/php_new/blog_site_mvc/index.php/logout">Logout</a>
           <?php }else{ ?>
-            <a class="nav-link"  href="../login/login_view.php">Login</a>
+            <a class="nav-link"  href="http://www.site.com/Training/PHP/php_new/blog_site_mvc/index.php/login">Login</a>
           <?php } ?>
           </li>
           <?php 
           if(isset($_SESSION['username']) && isset($_SESSION['password'])){ ?>
             <li class="nav-item">
-          <a class="nav-link" href="../my_blogs/my_blogs_view.php">My Blogs</a>
+          <a class="nav-link" href="http://www.site.com/Training/PHP/php_new/blog_site_mvc/index.php/myblogs">My Blogs</a>
           </li>
           <?php } ?>
           <li class="nav-item">
-          <a class="nav-link"  href="../home/index.php">Home</a>
+          <a class="nav-link"  href="http://www.site.com/Training/PHP/php_new/blog_site_mvc/index.php/home">Home</a>
           </li>
       </ul>
     <form class="form-group" method="POST" enctype="multipart/form-data" action="">
