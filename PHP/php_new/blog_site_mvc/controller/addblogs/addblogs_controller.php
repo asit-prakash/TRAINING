@@ -69,7 +69,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && $imageErr=="") {
 
   $add=$obj_model->add_blog($title,$author,$content,$timestamp,$user_name,$image_path);
     if ($add == true) {
-    echo "New blog created successfully";
+    $added = "New blog created successfully";
     header ('Refresh: 2; URL=http://www.site.com/Training/PHP/php_new/blog_site_mvc/index.php/myblogs');
     }
     else {

@@ -5,6 +5,7 @@ $uri=parse_url($_SERVER['REQUEST_URI'],PHP_URL_PATH);
 $uri = basename($uri);
 
 switch($uri) {
+  
   case 'index.php':
     header("Location:http://www.site.com/Training/PHP/php_new/blog_site_mvc/index.php/home");
     break;
@@ -82,4 +83,6 @@ switch($uri) {
   default:
     echo "<html><body><h1>PAGE NOT FOUND</h1></body></html>";
 
+    // print_r($_REQUEST);
+    // echo $_REQUEST['q'];
 }

@@ -4,25 +4,41 @@ require './vendor/autoload.php';
 use dbcon\db_conn;
 use user\user_model;
 
-$nameErr = $usernameErr = $contactErr = $emailErr = $passwordErr =  "";
+$nameErr = $usernameErr = $contactErr = $emailErr = $passwordErr = "";
 $name = $user_name = $contact =  $email = $pass_word = $confirm =  "";
 $name_check = $username_check = $contact_check = $email_check = $password_check = "";
 $err_flag=0;
+$captchaok=0;
 
-if(isset($_POST['username']) && !isset($_POST['register'])){
-  $user_name=$_POST['username'];
-  $obj_db=new db_conn;
-  $access=$obj_db->open_db_conn();
-  $obj = new user_model($access);
-  $availability=$obj->username_avail($user_name);
-  if($availability == true) {
-    $response="not available";
-  }
-  else {
-    $response="available";
-  }
-  echo $response;
-}
+// if(isset($_POST['username']) && !isset($_POST['register'])){
+//   $user_name=$_POST['username'];
+//   $obj_db=new db_conn;
+//   $access=$obj_db->open_db_conn();
+//   $obj = new user_model($access);
+//   $availability=$obj->username_avail($user_name);
+//   if($availability == true) {
+//     $response="not available";
+//   }
+//   else {
+//     $response="available";
+//   }
+//   echo $response;
+// }
+
+// if(isset($_POST['fullname']) && !isset($_POST['register'])){
+//   $fullname=$_POST['fullname'];
+//   $nameErr='hii';
+//   if(empty($nameErr)){
+//     $msg = "Name: ".$fullname;
+//     echo json_encode(['code'=>200, 'msg'=>$msg]);
+//     exit;
+//   }
+//   else{
+//     echo json_encode(['code'=>404, 'msg'=>$nameErr]);
+//   }
+//   //echo $nameErr;
+// }
+
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['register'])) {
   $name = test_input($_POST["fullname"]);
@@ -64,6 +80,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['register'])) {
     $err_flag++;
   }
 
+  if(isset($_POST['g-recaptcha-response']) && !empty($_POST['g-recaptcha-response'])) {
+    $secretKey="6Lfc09wUAAAAAPif_7idYQe5VcKwHK2K3liqwgx5";
+    $responseKey=$_POST['g-recaptcha-response'];
+    $userIP=$_SERVER['REMOTE_ADDR'];
+    $url="https://www.google.com/recaptcha/api/siteverify?secret=$secretKey&response=$responseKey&remoteip=$userIP";
+
+    $response=file_get_contents($url);
+    $response=json_decode($response);
+    if($response->success === true)
+    {
+      $captchaok=1;
+    }
+    else {
+      $captchaok=0;
+    }
+  }
+
   if($err_flag==0) {
     $obj_db=new db_conn;
     $access=$obj_db->open_db_conn();
@@ -79,7 +112,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['register'])) {
       $emailErr = "Email already exists";
     }
   }
-  if($err_flag==0 && !$obj->user_exist($user_name) == 1 && !$obj->email_exist($email) == 1) {
+  if($err_flag==0 && !$obj->user_exist($user_name) == 1 && !$obj->email_exist($email) == 1 && $captchaok ==1) {
     $pass_word=hash('sha512',$pass_word);
     $register_ok=$obj->register_user($user_name,$pass_word,$contact,$email,$name);
     if($register_ok == true) {
@@ -90,6 +123,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['register'])) {
     else {
       echo "Error: " . $sql3 . "" . $register_ok . "<br>";
     }
+  }
+  elseif($captchaok == 0) {
+    $captchaErr="please check out captcha";
   }
 }
 

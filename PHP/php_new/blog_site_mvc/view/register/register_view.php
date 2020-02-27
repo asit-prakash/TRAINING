@@ -9,13 +9,19 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="../view/assets/style.css?v=1">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <title>
       REGISTER PAGE
     </title>
   </head>
   <body>
   <div class="register-content">
-    <h2>REGISTER HERE</h2>
+      <h2>REGISTER HERE</h2>
+      <?php if(isset($captchaErr)) { ?>
+      <div class="alert alert-danger">
+        <?php echo $captchaErr ?>
+      </div>
+      <?php } ?>
       <form class="form-group" id="registerform" method="post" action="" >
         <?php if(isset($success)) { ?>
         <div class="alert alert-success">
@@ -86,6 +92,7 @@
         class="form-control"
         title="Re-enter your password"
         required>
+        <div class="g-recaptcha" data-sitekey="6Lfc09wUAAAAACiWUYzq5nPqrDz_1MKpKMxblDi2"></div>
         <input
         type="submit"
         name="register"
@@ -97,6 +104,7 @@
         </div>
       </form>
   </div>
-  <!-- <script type="text/javascript" src="../view/assets/user_avail.js?v=1"></script> -->
+  <!-- <script type="text/javascript" src="../components/user_avail.js?v=1"></script> -->
+  <!-- <script type="text/javascript" src="../components/user_validate.js?v=1"></script> -->
   </body>
 </html>

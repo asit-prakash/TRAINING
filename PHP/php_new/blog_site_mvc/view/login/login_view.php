@@ -8,6 +8,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="../view/assets/style.css?v=1">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <title>
       LOGIN PAGE
     </title>
@@ -37,6 +38,7 @@
         id="password"
         class="form-control"
         required>
+        <div class="g-recaptcha" data-sitekey="6Lfc09wUAAAAACiWUYzq5nPqrDz_1MKpKMxblDi2"></div>
         <input
         type="submit"
         name="login"

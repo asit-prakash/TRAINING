@@ -14,31 +14,39 @@
   </head>
   <body>
   <div class="container">
-      <ul class="nav nav-pills">
+  <ul class="nav nav-pills">
+    <a id= "site" class="nav-link" href="http://www.site.com/Training/PHP/php_new/blog_site_mvc/index.php/home">Blogastic.com</a>
       <li class="nav-item">
-          <?php
-          if(isset($_SESSION['username']) && isset($_SESSION['password'])){ ?>
-            <a class="nav-link"  href="http://www.site.com/Training/PHP/php_new/blog_site_mvc/index.php/logout">Logout</a>
-          <?php }else{ ?>
-            <a class="nav-link"  href="http://www.site.com/Training/PHP/php_new/blog_site_mvc/index.php/login">Login</a>
-          <?php } ?>
-          </li>
-          <?php 
-          if(isset($_SESSION['username']) && isset($_SESSION['password'])){ ?>
-            <li class="nav-item">
-          <a class="nav-link" href="http://www.site.com/Training/PHP/php_new/blog_site_mvc/index.php/myblogs">My Blogs</a>
-          </li>
-          <?php } ?>
-          <?php 
-          if(isset($_SESSION['username']) && isset($_SESSION['password'])){ ?>
-            <li class="nav-item">
-          <a class="nav-link" href="http://www.site.com/Training/PHP/php_new/blog_site_mvc/index.php/addblog">Add Blogs</a>
-          </li>
-          <?php } ?>
-          <li class="nav-item">
-          <a class="nav-link"  href="http://www.site.com/Training/PHP/php_new/blog_site_mvc/index.php/home">Home</a>
-          </li>
+        <a class="nav-link"  href="http://www.site.com/Training/PHP/php_new/blog_site_mvc/index.php/home">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="http://www.site.com/Training/PHP/php_new/blog_site_mvc/index.php/myblogs">My Blogs</a>
+      </li>
+      <li class="nav-item">
+      <?php
+      if(isset($_SESSION['username']) && isset($_SESSION['password'])){ ?>
+      <li class="nav-item">
+        <a class="nav-link" href="http://www.site.com/Training/PHP/php_new/blog_site_mvc/index.php/addblog">Add Blog</a>
+      </li>
+      <div class="dropdown">
+        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <?php echo $_SESSION['username']; ?>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+          <a class="dropdown-item" href="#">Your Profile</a>
+          <a class="dropdown-item" href="http://www.site.com/Training/PHP/php_new/blog_site_mvc/index.php/logout">Logout</a>
+      </div>
+      <?php }
+      else { ?>
+      <a class="nav-link"  href="http://www.site.com/Training/PHP/php_new/blog_site_mvc/index.php/login">Login</a>
+      <?php } ?>
+      </li>
       </ul>
+      <?php if(isset($updated)) { ?>
+        <div class="alert alert-success">
+          <?php echo $updated ?>
+        </div>
+      <?php } ?>
     <form class="form-group" method="POST" enctype="multipart/form-data" action="">
     <label for="title">Enter Title:</label>
     <input
@@ -68,7 +76,7 @@
     <input
       type='submit'
       name='submit'
-      id='submit'
+      id='update'
       class="btn btn-primary "
       value='Update'>
     </form>

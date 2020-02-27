@@ -13,6 +13,7 @@
 }
 .card-img {
   width:298px;
+  height: 160px;
 }
 .card-img-top {
   width: 300px;
@@ -35,6 +36,12 @@
 }
 .nav{
   background-color: lightblue;
+  justify-content: flex-end;
+  margin-top: 5px;
+}
+#site {
+  flex: auto;
+  color: black;
 }
 .error {
   color: red;
@@ -49,12 +56,24 @@ label {
   transform: translate3d(-50%,-50%, 0);
   position: absolute;
 }
+#login {
+  margin-top: 5px;
+}
 .register-content {
   width: 450px;
   top:50%;
   left: 50%;
   transform: translate3d(-50%,-50%, 0);
   position: absolute;
+  margin-top: 100px;
+  margin-bottom: 50px;
+}
+.g-recaptcha {
+  margin-top: 10px;
+}
+#register {
+  margin-top: -58px;
+  margin-right: 25px;
 }
 h2 {
   text-align: center;
@@ -86,4 +105,10 @@ h1 {
 }
 img{
   width:300px;
+}
+#update {
+  margin-top: 5px;
+}
+#post {
+  margin-top: 5px;
 }
