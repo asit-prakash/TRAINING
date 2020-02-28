@@ -79,6 +79,6 @@
         <?php }
       } ?>
   </div>
-  <script type="text/javascript" src="./controller/myblogs/confirm_del.js?v=1"></script>
+  <script type="text/javascript" src="../components/confirm_delete.js?v=1"></script>
   </body>
 </html>

@@ -29,7 +29,7 @@
         </div>
         <?php } ?>
       <label for="fullname">Enter Fullname:</label>
-      <span class="error">* <?php echo $nameErr;?></span>
+      <span id="fullname_response" class="error">* <?php echo $nameErr;?></span>
       <input
         type="text"
         placeholder="Enter Fullname"
@@ -40,8 +40,7 @@
         class="form-control"
         required>
       <label for="username">Enter Username:</label>
-      <span class="error">* <?php echo $usernameErr;?></span>
-      <span id="uname_response"></span>
+      <span id="uname_response" class="error">* <?php echo $usernameErr;?></span>
       <input
         type="text"
         placeholder="Enter Username"
@@ -52,7 +51,7 @@
         title="Only letters,numbers and '@','_','-' are allowed"
         required>
       <label for="contact">Enter Contact:</label>
-      <span class="error">* <?php echo $contactErr;?></span>
+      <span id="contact_response" class="error">* <?php echo $contactErr;?></span>
         <input 
         type="text" 
         name="contact" 
@@ -63,7 +62,7 @@
         title="start with +91"
         placeholder="start with +91">
       <label for="email">Enter Email:</label>
-      <span class="error">* <?php echo $emailErr;?></span>
+      <span id="email_response" class="error">* <?php echo $emailErr;?></span>
         <input 
         type="text" 
         name="email" 
@@ -74,13 +73,14 @@
         title="Enter your email"
         required>
       <label for="password">Enter Password:</label>
-      <span class="error">* <?php echo $passwordErr;?></span>
+      <span id="password_response" class="error">* <?php echo $passwordErr;?></span>
         <input
         type="password"
         placeholder="Enter Password"
         name="password"
         id="password"
         class="form-control"
+        maxlength="15"
         title="enter a strong password"
         required>
       <label for="confirm">Confirm Password:</label>
@@ -90,6 +90,7 @@
         name="confirm"
         id="confirm"
         class="form-control"
+        maxlength="15"
         title="Re-enter your password"
         required>
         <div class="g-recaptcha" data-sitekey="6Lfc09wUAAAAACiWUYzq5nPqrDz_1MKpKMxblDi2"></div>
@@ -104,7 +105,6 @@
         </div>
       </form>
   </div>
-  <!-- <script type="text/javascript" src="../components/user_avail.js?v=1"></script> -->
-  <!-- <script type="text/javascript" src="../components/user_validate.js?v=1"></script> -->
+  <script type="text/javascript" src="../components/user_validate.js?v=1"></script>
   </body>
 </html>

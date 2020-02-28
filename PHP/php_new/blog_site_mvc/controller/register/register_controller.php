@@ -10,36 +10,6 @@ $name_check = $username_check = $contact_check = $email_check = $password_check 
 $err_flag=0;
 $captchaok=0;
 
-// if(isset($_POST['username']) && !isset($_POST['register'])){
-//   $user_name=$_POST['username'];
-//   $obj_db=new db_conn;
-//   $access=$obj_db->open_db_conn();
-//   $obj = new user_model($access);
-//   $availability=$obj->username_avail($user_name);
-//   if($availability == true) {
-//     $response="not available";
-//   }
-//   else {
-//     $response="available";
-//   }
-//   echo $response;
-// }
-
-// if(isset($_POST['fullname']) && !isset($_POST['register'])){
-//   $fullname=$_POST['fullname'];
-//   $nameErr='hii';
-//   if(empty($nameErr)){
-//     $msg = "Name: ".$fullname;
-//     echo json_encode(['code'=>200, 'msg'=>$msg]);
-//     exit;
-//   }
-//   else{
-//     echo json_encode(['code'=>404, 'msg'=>$nameErr]);
-//   }
-//   //echo $nameErr;
-// }
-
-
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['register'])) {
   $name = test_input($_POST["fullname"]);
   $name_check=preg_match("/^[a-zA-Z]+(\ [a-zA-Z]+)?$/",$name);

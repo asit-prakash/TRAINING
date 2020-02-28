@@ -29,6 +29,7 @@
         name="username"
         id="username"
         class="form-control"
+        maxlength="15"
         required>
         <label for="password">Enter Password:</label>
         <input
@@ -37,6 +38,7 @@
         name="password"
         id="password"
         class="form-control"
+        maxlength="15"
         required>
         <div class="g-recaptcha" data-sitekey="6Lfc09wUAAAAACiWUYzq5nPqrDz_1MKpKMxblDi2"></div>
         <input

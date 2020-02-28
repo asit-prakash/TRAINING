@@ -1,6 +1,7 @@
 <?php
 namespace user;
-require './vendor/autoload.php';
+//require './vendor/autoload.php';
+//i don't know how is this working,but it's working
 use dbcon\db_conn;
 
 class user_model extends db_conn {
