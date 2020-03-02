@@ -1,22 +1,44 @@
 
+.navigation {
+  background: lightblue;
+  width: 100%;
+  float: left;
+}
+.site {
+  /* display: inline-block; */
+  float: left;
+  color: black;
+  margin: 5px 0;
+  margin-left: 15px;
+}
+.links {
+  /* display: inline-block; */
+  float: right;
+  margin-right: 15px;
+}
 .container {
   max-width:100%;
 }
+.container::after{
+  content: "";
+  clear: both;
+  display: block;
+}
 .card {
   float: left;
-  margin: 10px;
+  margin-top: 15px;
+  margin-right: 15px;
+  margin-left: 15px;
   width:300px;
 } 
 .card-body {
-  height: 225px;
+  height: 190px;
   overflow: hidden;
 }
-.card-img {
-  width:298px;
-  height: 160px;
-}
 .card-img-top {
-  width: 300px;
+  width: 298px;
+  height: 160px;
+  overflow: hidden;
 }
 .card-title {
   height: 47px;
@@ -34,21 +56,12 @@
   float: left;
   margin-top: 15px;
 }
-.nav{
-  background-color: lightblue;
-  justify-content: flex-end;
-}
 .nav-item{
   margin: 5px 0;
 }
 .dropdown {
-  margin: 5px 10px;
-}
-#site {
-  flex: auto;
-  color: black;
   margin: 5px 0;
-  margin-left: 10px;
+  margin-right: 15px;
 }
 .error {
   color: red;
@@ -112,12 +125,30 @@ h1 {
   float: right;
   margin-right: 25px;
 }
-img{
+/* img{
   width:300px;
-}
+} */
 #update {
   margin-top: 5px;
 }
 #post {
   margin-top: 5px;
+}
+.blog-form {
+  margin-right: 15px;
+  margin-left: 15px;
+}
+.footer-top {
+  background-color: #222;
+  margin-top: 15px;
+  height: 200px;
+}
+.footer-bottom {
+  background-color:black;
+  height: 50px;
+}
+.copyright {
+  text-align: center;
+  color: white;
+  padding-top: 10px;
 }

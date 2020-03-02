@@ -13,35 +13,41 @@
     </title>
   </head>
   <body>
-  <ul class="nav nav-pills">
-        <a id= "site" class="nav-link" href="http://www.site.com/Training/PHP/php_new/blog_site_mvc/index.php/home">Blogastic.com</a>
-        <li class="nav-item">
-          <a class="nav-link"  href="http://www.site.com/Training/PHP/php_new/blog_site_mvc/index.php/home">Home</a>
-        </li>
-        <?php 
-        if(!isset($_SESSION['username']) && !isset($_SESSION['password'])){ ?>
-        <li class="nav-item">
-          <a class="nav-link"  href="http://www.site.com/Training/PHP/php_new/blog_site_mvc/index.php/login">Login</a>
-        </li>
-        <?php }
-        elseif(isset($_SESSION['username']) && isset($_SESSION['password'])) { ?>
-        <li class="nav-item">
-          <a class="nav-link " href="http://www.site.com/Training/PHP/php_new/blog_site_mvc/index.php/myblogs">My Blogs</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="http://www.site.com/Training/PHP/php_new/blog_site_mvc/index.php/addblog">Add Blog</a>
-        </li>
-        <div class="dropdown">
-          <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <?php echo $_SESSION['username']; ?>
-          </a>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-            <a class="dropdown-item" href="#">Your Profile</a>
-            <a class="dropdown-item" href="http://www.site.com/Training/PHP/php_new/blog_site_mvc/index.php/logout">Logout</a>
+    <div class="navigation">
+      <div class="site">
+        <a class="nav-link" href="http://www.site.com/Training/PHP/php_new/blog_site_mvc/index.php/home">Blogastic.com</a>
+      </div>
+      <div class="links">
+        <ul class="nav nav-pills">
+          <li class="nav-item">
+            <a class="nav-link"  href="http://www.site.com/Training/PHP/php_new/blog_site_mvc/index.php/home">Home</a>
+          </li>
+          <?php 
+          if(!isset($_SESSION['username']) && !isset($_SESSION['password'])){ ?>
+          <li class="nav-item">
+            <a class="nav-link"  href="http://www.site.com/Training/PHP/php_new/blog_site_mvc/index.php/login">Login</a>
+          </li>
+          <?php }
+          elseif(isset($_SESSION['username']) && isset($_SESSION['password'])) { ?>
+          <li class="nav-item">
+            <a class="nav-link " href="http://www.site.com/Training/PHP/php_new/blog_site_mvc/index.php/myblogs">My Blogs</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="http://www.site.com/Training/PHP/php_new/blog_site_mvc/index.php/addblog">Add Blog</a>
+          </li>
+          <div class="dropdown">
+            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <?php echo $_SESSION['username']; ?>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+              <a class="dropdown-item" href="#">Your Profile</a>
+              <a class="dropdown-item" href="http://www.site.com/Training/PHP/php_new/blog_site_mvc/index.php/logout">Logout</a>
+            </div>
           </div>
-        </div>
-        <?php } ?>
-      </ul>
+          <?php } ?>
+        </ul>
+      </div>
+    </div>
     <div class="container">
       <?php 
       foreach ($posts as $blog) { ?>

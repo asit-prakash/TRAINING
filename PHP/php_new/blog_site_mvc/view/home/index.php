@@ -13,8 +13,12 @@
     </title>
   </head>
   <body>
-    <ul class="nav nav-pills">
-          <a id= "site" class="nav-link" href="http://www.site.com/Training/PHP/php_new/blog_site_mvc/index.php/home">Blogastic.com</a>
+    <div class="navigation">
+      <div class="site">
+          <a class="nav-link" href="http://www.site.com/Training/PHP/php_new/blog_site_mvc/index.php/home">Blogastic.com</a>
+      </div>
+      <div class="links">
+      <ul class="nav nav-pills">
         <li class="nav-item">
           <a class="nav-link active" href="http://www.site.com/Training/PHP/php_new/blog_site_mvc/index.php/home">Home</a>
         </li>
@@ -41,7 +45,9 @@
             </div>
           </div>
           <?php } ?>
-      </ul>
+          </ul>
+      </div>
+    </div>
     <div class="container">
       <?php if(isset($noblog_msg)) { ?>
         <div class="alert alert-success">
@@ -74,8 +80,16 @@
             </div>
           </div>
         </div>
-  <?php }
+        <?php 
+        }
       } ?>
+    </div>
+    <div class="footer">
+      <div class="footer-top">
+      </div>
+      <div class="footer-bottom">
+        <p class="copyright"> &copy; 2020 Blogastic.com All rights reserved</p>
+      </div>
     </div>
   </body>
 </html>
