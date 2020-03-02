@@ -13,8 +13,7 @@
     </title>
   </head>
   <body>
-    <div class="container">
-      <ul class="nav nav-pills">
+    <ul class="nav nav-pills">
           <a id= "site" class="nav-link" href="http://www.site.com/Training/PHP/php_new/blog_site_mvc/index.php/home">Blogastic.com</a>
         <li class="nav-item">
           <a class="nav-link active" href="http://www.site.com/Training/PHP/php_new/blog_site_mvc/index.php/home">Home</a>
@@ -43,6 +42,7 @@
           </div>
           <?php } ?>
       </ul>
+    <div class="container">
       <?php if(isset($noblog_msg)) { ?>
         <div class="alert alert-success">
           <?php echo $noblog_msg; ?>

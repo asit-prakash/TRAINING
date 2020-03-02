@@ -14,7 +14,6 @@
     </title>
   </head>
   <body>
-  <div class="container">
   <ul class="nav nav-pills">
     <a id= "site" class="nav-link" href="http://www.site.com/Training/PHP/php_new/blog_site_mvc/index.php/home">Blogastic.com</a>
       <li class="nav-item">
@@ -43,6 +42,7 @@
       <?php } ?>
       </li>
   </ul>
+  <div class="container">
       <?php if(isset($added)) { ?>
         <div class="alert alert-success">
           <?php echo $added ?>

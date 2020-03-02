@@ -37,11 +37,18 @@
 .nav{
   background-color: lightblue;
   justify-content: flex-end;
-  margin-top: 5px;
+}
+.nav-item{
+  margin: 5px 0;
+}
+.dropdown {
+  margin: 5px 10px;
 }
 #site {
   flex: auto;
   color: black;
+  margin: 5px 0;
+  margin-left: 10px;
 }
 .error {
   color: red;
@@ -70,6 +77,8 @@ label {
 }
 .g-recaptcha {
   margin-top: 10px;
+  width: 50px;
+  height: 90px;
 }
 #register {
   margin-top: -58px;

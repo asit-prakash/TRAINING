@@ -13,8 +13,7 @@
     </title>
   </head>
   <body>
-  <div class="container">
-    <ul class="nav nav-pills">
+  <ul class="nav nav-pills">
       <a id= "site" class="nav-link" href="http://www.site.com/Training/PHP/php_new/blog_site_mvc/index.php/home">Blogastic.com</a>
       <li class="nav-item">
         <a class="nav-link"  href="http://www.site.com/Training/PHP/php_new/blog_site_mvc/index.php/home">Home</a>
@@ -42,6 +41,7 @@
       <?php } ?>
       </li>
       </ul>
+  <div class="container">
       <?php if(isset($del_succ)) { ?>
         <div class="alert alert-success">
           <?php echo $del_succ; ?>
@@ -79,6 +79,6 @@
         <?php }
       } ?>
   </div>
-  <script type="text/javascript" src="../components/confirm_delete.js?v=1"></script>
+  <script type="text/javascript" src="../components/confirm_delete.js?v=2"></script>
   </body>
 </html>
