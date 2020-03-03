@@ -79,9 +79,9 @@
         <label for="fileToUpload">Upload Image: </label>
         <input
           type="file"
-          name="fileToUpload" 
+          name="fileToUpload"
           id="fileToUpload"
-          class="form-control">
+          class="form-control img-upload">
         <span class="error"><?php echo $imageErr;?></span>
         <input
           type='submit'
