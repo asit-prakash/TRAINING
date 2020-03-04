@@ -68,6 +68,32 @@
         </div>
       <?php } ?>
     </div>
+    <div class="disqus-section">
+      <div id="disqus_thread"></div>
+      <script>
+
+      /**
+      *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+      *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+      
+      var disqus_config = function () {
+      this.page.url = 'site.com/Training/PHP/php_new/blog_site_mvc/index.php/readblog';  // Replace PAGE_URL with your page's canonical URL variable
+      this.page.identifier = '<?php echo $id; ?>' ; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+      console.log(this.page.url);
+      console.log(this.page.identifier);
+      this.page.title = "readblog"
+      };
+
+      (function() { // DON'T EDIT BELOW THIS LINE
+      var d = document, s = d.createElement('script');
+      s.src = 'https://blogastic.disqus.com/embed.js';
+      console.log(s.src);
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+      })();
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>                    
+    </div>
     <div class="footer">
       <div class="footer-top">
         <div class="row">

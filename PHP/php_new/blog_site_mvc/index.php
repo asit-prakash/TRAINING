@@ -33,7 +33,12 @@ switch($uri) {
     break;
   
   case 'readblog':
-    require_once('./controller/read_blog/read_blog_controller.php');
+    if(isset($_SESSION['id'])) {
+      require_once('./controller/read_blog/read_blog_controller.php');
+    }
+    else {
+      header("Location:http://www.site.com/Training/PHP/php_new/blog_site_mvc/index.php/home");
+    }
     break;
   
   case 'myblogs':
