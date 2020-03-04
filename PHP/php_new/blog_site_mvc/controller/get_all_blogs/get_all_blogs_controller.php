@@ -19,7 +19,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['read'])) {
   // echo '<script type="text/javascript">';
   // echo "window.location.href='./show_blog.php';";
   // echo '</script>';
-  header("Location:http://www.site.com/Training/PHP/php_new/blog_site_mvc/index.php/readblog");
+  header("Location:http://www.site.com/readblog");
   exit();
 }
 require_once('./view/home/index.php');

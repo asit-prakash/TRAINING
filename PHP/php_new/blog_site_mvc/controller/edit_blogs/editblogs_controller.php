@@ -70,7 +70,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && $imageErr == "") {
   $update=$obj_model->update_edits($upd_title,$upd_content,$timestamp,$image_path,$id);
   if ($update == true) {
     $updated="Your blog is successfully updated";
-    header ('Refresh: 2; URL=http://www.site.com/Training/PHP/php_new/blog_site_mvc/index.php/myblogs');
+    header ('Refresh: 2; URL=http://www.site.com/myblogs');
 	}
 	else {
 		echo $update;		

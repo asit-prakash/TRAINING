@@ -101,7 +101,7 @@
         class="btn btn-primary "
         value="Register">
         <div class="login-link">
-          Already a user? <a href="http://www.site.com/Training/PHP/php_new/blog_site_mvc/index.php/login">Login</a>
+          Already a user? <a href="http://www.site.com/login">Login</a>
         </div>
       </form>
   </div>

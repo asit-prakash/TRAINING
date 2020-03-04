@@ -51,10 +51,10 @@
           <a href="../forget_pwd/forget.php">Forget Password</a>
         </div> -->
         <div class="continue">
-          <a href="http://www.site.com/Training/PHP/php_new/blog_site_mvc/index.php/home">Continue Without Login</a>
+          <a href="http://www.site.com/home">Continue Without Login</a>
         </div>
         <div class="register">
-          Never have been here before? <a href="http://www.site.com/Training/PHP/php_new/blog_site_mvc/index.php/register">Register Here</a>
+          Never have been here before? <a href="http://www.site.com/register">Register Here</a>
         </div>
       </form>
   </div>

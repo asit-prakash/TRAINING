@@ -16,21 +16,21 @@
   <body>
     <div class="navigation">
       <div class="site">
-        <a class="nav-link" href="http://www.site.com/Training/PHP/php_new/blog_site_mvc/index.php/home">Blogastic.com</a>
+        <a class="nav-link" href="http://www.site.com/home">Blogastic.com</a>
       </div>
       <div class="links">
         <ul class="nav nav-pills">
           <li class="nav-item">
-            <a class="nav-link"  href="http://www.site.com/Training/PHP/php_new/blog_site_mvc/index.php/home">Home</a>
+            <a class="nav-link"  href="http://www.site.com/home">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="http://www.site.com/Training/PHP/php_new/blog_site_mvc/index.php/myblogs">My Blogs</a>
+            <a class="nav-link" href="http://www.site.com/myblogs">My Blogs</a>
           </li>
           <li class="nav-item">
           <?php
           if(isset($_SESSION['username']) && isset($_SESSION['password'])){ ?>
           <li class="nav-item">
-            <a class="nav-link" href="http://www.site.com/Training/PHP/php_new/blog_site_mvc/index.php/addblog">Add Blog</a>
+            <a class="nav-link" href="http://www.site.com/addblog">Add Blog</a>
           </li>
           <div class="dropdown">
             <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -38,11 +38,11 @@
             </a>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
               <a class="dropdown-item" href="#">Your Profile</a>
-              <a class="dropdown-item" href="http://www.site.com/Training/PHP/php_new/blog_site_mvc/index.php/logout">Logout</a>
+              <a class="dropdown-item" href="http://www.site.com/logout">Logout</a>
           </div>
           <?php }
           else { ?>
-          <a class="nav-link"  href="http://www.site.com/Training/PHP/php_new/blog_site_mvc/index.php/login">Login</a>
+          <a class="nav-link"  href="http://www.site.com/login">Login</a>
           <?php } ?>
           </li>
         </ul>
@@ -96,13 +96,13 @@
         <div class="row">
           <div class="about">
             <h5>About Us</h5>
-            <a class="site-footer" href="http://www.site.com/Training/PHP/php_new/blog_site_mvc/index.php/home">Blogastic.com</a>
+            <a class="site-footer" href="http://www.site.com/home">Blogastic.com</a>
             <p class="tagline">Navigating you to multiverse of ideas and people</p>
           </div>
           <div class="footer-tab">
             <h5>Quick Links</h5>
             <div>
-              <a class="link-footer" href="http://www.site.com/Training/PHP/php_new/blog_site_mvc/index.php/home">Home</a>
+              <a class="link-footer" href="http://www.site.com/home">Home</a>
             </div>
           </div>
           <div class="footer-tab">

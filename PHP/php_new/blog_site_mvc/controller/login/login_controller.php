@@ -36,7 +36,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
     $_SESSION['username']=$validate[0]['USERNAME'];
     $_SESSION['password']=$validate[0]['PASSWORD'];
     $_SESSION['name']=$validate[0]['NAME'];
-    header("Location:http://www.site.com/Training/PHP/php_new/blog_site_mvc/index.php/home");
+    header("Location:http://www.site.com/home");
   }
   elseif($validate && $captchaok==0) {
     $invalid = "please check out captcha";
