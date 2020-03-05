@@ -16,6 +16,7 @@ if($posts == false) {
 if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['read'])) {
   $_SESSION['id']=$_POST['pass_id'];
   $_SESSION['name']=$_POST['pass_author'];
+  $_SESSION['read']=$_POST['read'];
   // echo '<script type="text/javascript">';
   // echo "window.location.href='./show_blog.php';";
   // echo '</script>';

@@ -34,7 +34,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 		$check = getimagesize($temp_filename);
 		if($check !== false) {
 		//echo "File is an image - " . $check["mime"] . ".";
-		$uploadOk = 1;
+			if ($_FILES["fileToUpload"]["size"] > 3000000) {
+				$imageErr="maximmum image size is 3MB";
+				$uploadOk = 0;
+			}
+			else {
+				$uploadOk = 1;
+			}
 		} 
 		else {
 			//echo "File is not an image.";
@@ -43,7 +49,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 		}
 	}
 	else {
-		$image_path="../view/assets/uploads/default.jpeg";
+		$image_path=$img_path;
 		$uploadOk = 1;
 		//$imageErr="Please choose an image file";
 	}
@@ -62,15 +68,17 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
 if($_SERVER["REQUEST_METHOD"] == "POST" && $imageErr == "") {
   $upd_title=$_POST['title'];
-  $upd_title=addslashes($upd_title);
-  $upd_content=$_POST['content'];
-  $upd_content=addslashes($upd_content);
+	$upd_title=addslashes($upd_title);
+	$upd_title = htmlspecialchars($upd_title);
+	$upd_content=$_POST['content'];
+	$upd_content=addslashes($upd_content);
+	//$upd_content = htmlspecialchars($upd_content);
   $timestamp=time();
 
   $update=$obj_model->update_edits($upd_title,$upd_content,$timestamp,$image_path,$id);
   if ($update == true) {
     $updated="Your blog is successfully updated";
-    header ('Refresh: 2; URL=http://www.site.com/myblogs');
+    header ('Refresh: 0.5; URL=http://www.site.com/myblogs');
 	}
 	else {
 		echo $update;		

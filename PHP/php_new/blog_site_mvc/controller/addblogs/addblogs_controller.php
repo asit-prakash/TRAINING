@@ -25,7 +25,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 		$check = getimagesize($temp_filename);
 		if($check !== false) {
 		//echo "File is an image - " . $check["mime"] . ".";
-		$uploadOk = 1;
+			if ($_FILES["fileToUpload"]["size"] > 3000000) {
+				$imageErr="maximmum image size is 3MB";
+				$uploadOk = 0;
+			}
+			else {
+				$uploadOk = 1;
+			}
 		} 
 		else {
 			//echo "File is not an image.";
@@ -45,7 +51,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 				//echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
 			}
 			else {
-			echo "Sorry, there was an error uploading your file.";
+				$imageErr = "Sorry, there was an error uploading your file.";
 			}
 		}
 	}
@@ -58,11 +64,14 @@ $obj_model = new blogs_model($access);
 if($_SERVER["REQUEST_METHOD"] == "POST" && $imageErr=="") {
   //session_start();
   $title=$_POST['title'];
-  $title=addslashes($title);
+	$title=addslashes($title);
+	$title = htmlspecialchars($title);
   $author=$_SESSION['name'];
   $author=addslashes($author);
-  $content=$_POST['content'];
-  $content=addslashes($content);
+	$content=$_POST['content'];
+	//$content = htmlspecialchars($content);
+	$content=addslashes($content);
+	//$content=htmlentities($content);
   $timestamp=time();
   $user_name=$_SESSION['username'];
   $user_name=addslashes($user_name);
@@ -70,7 +79,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && $imageErr=="") {
   $add=$obj_model->add_blog($title,$author,$content,$timestamp,$user_name,$image_path);
     if ($add == true) {
     $added = "New blog created successfully";
-    header ('Refresh: 2; URL=http://www.site.com/myblogs');
+    header ('Refresh: 0.5; URL=http://www.site.com/myblogs');
     }
     else {
     echo "Error: " . $run_sql . "" . mysqli_error($conn) . "<br>";		

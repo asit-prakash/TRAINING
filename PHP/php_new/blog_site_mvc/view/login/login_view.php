@@ -14,6 +14,24 @@
     </title>
   </head>
   <body>
+  <div class="navigation">
+    <div class="site">
+      <a class="nav-link" href="http://www.site.com/home">Blogastic.com</a>
+    </div>
+    <div class="links">
+      <ul class="nav nav-pills">
+        <li class="nav-item">
+          <a class="nav-link" href="http://www.site.com/home">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link  active"  href="http://www.site.com/login">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"  href="http://www.site.com/register">Register</a>
+        </li>
+      </ul>
+    </div>
+  </div>
   <div class="login-content">
     <h2>LOGIN</h2>
     <?php if(isset($invalid)) { ?>

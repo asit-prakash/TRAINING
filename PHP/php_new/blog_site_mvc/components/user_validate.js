@@ -7,7 +7,12 @@ $(document).ready(function(){
         type: 'post',
         data: {username: username},
         success: function(response){
-        $('#uname_response').html(response);
+          if(response == 'available') {
+            $('#uname_response').html(response).css({"color": "green"});
+          }
+          else {
+            $('#uname_response').html(response).css({"color": "red"});
+          }
         }
       });
     }

@@ -28,6 +28,9 @@
           <li class="nav-item">
             <a class="nav-link"  href="http://www.site.com/login">Login</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link"  href="http://www.site.com/register">Register</a>
+          </li>
           <?php }
           elseif(isset($_SESSION['username']) && isset($_SESSION['password'])) { ?>
           <li class="nav-item">

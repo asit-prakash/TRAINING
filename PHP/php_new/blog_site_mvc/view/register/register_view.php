@@ -15,8 +15,26 @@
     </title>
   </head>
   <body>
+  <div class="navigation">
+    <div class="site">
+      <a class="nav-link" href="http://www.site.com/home">Blogastic.com</a>
+    </div>
+    <div class="links">
+      <ul class="nav nav-pills">
+        <li class="nav-item">
+          <a class="nav-link" href="http://www.site.com/home">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"  href="http://www.site.com/login">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link  active"  href="http://www.site.com/register">Register</a>
+        </li>
+      </ul>
+    </div>
+  </div>
   <div class="register-content">
-      <h2>REGISTER HERE</h2>
+      <h2>WELCOME TO BLOGASTIC</h2>
       <?php if(isset($captchaErr)) { ?>
       <div class="alert alert-danger">
         <?php echo $captchaErr ?>
@@ -38,6 +56,7 @@
         id="fullname"
         title="only letters allowed"
         class="form-control"
+        value= "<?php if(isset($_POST['fullname'])) {echo $_POST['fullname'];} ?>"
         required>
       <label for="username">Enter Username:</label>
       <span id="uname_response" class="error">* <?php echo $usernameErr;?></span>
@@ -48,6 +67,7 @@
         maxlength="15"
         id="username"
         class="form-control"
+        value= "<?php if(isset($_POST['username'])) {echo $_POST['username'];} ?>"
         title="Only letters,numbers and '@','_','-' are allowed"
         required>
       <label for="contact">Enter Contact:</label>
@@ -59,6 +79,7 @@
         class="form-control"
         maxlength="14"
         pattern="[+]{1}[9]{1}[1]{1}[1-9]{1}[0-9]{9}"
+        value= "<?php if(isset($_POST['contact'])) {echo $_POST['contact'];} ?>"
         title="start with +91"
         placeholder="start with +91">
       <label for="email">Enter Email:</label>
@@ -69,7 +90,8 @@
         id="email"
         class="form-control"
         maxlength="320"
-        placeholder="Enter Email"
+        placeholder="Enter a valid email"
+        value= "<?php if(isset($_POST['email'])) {echo $_POST['email'];} ?>"
         title="Enter your email"
         required>
       <label for="password">Enter Password:</label>

@@ -2,14 +2,17 @@
 session_start();
 // require 'vendor/autoload.php';
 $uri=parse_url($_SERVER['REQUEST_URI'],PHP_URL_PATH);
-$uri = basename($uri);
 
 switch($uri) {
-  case 'home':
+  case '/':
+    header("Location:http://www.site.com/home");
+    break;
+
+  case '/home':
     require_once('./controller/get_all_blogs/get_all_blogs_controller.php');
     break;
   
-  case 'login':
+  case '/login':
     if(isset($_SESSION['username']) && isset($_SESSION['password'])) {
       header("Location:http://www.site.com/home");
     }
@@ -18,7 +21,7 @@ switch($uri) {
     }
     break;
 
-  case 'register':
+  case '/register':
     if(isset($_SESSION['username']) && isset($_SESSION['password'])) {
       header("Location:http://www.site.com/home");
     }
@@ -27,8 +30,8 @@ switch($uri) {
     }
     break;
   
-  case 'readblog':
-    if(isset($_SESSION['id'])) {
+  case '/readblog':
+    if(isset($_SESSION['id']) && isset($_SESSION['read'])) {
       require_once('./controller/read_blog/read_blog_controller.php');
     }
     else {
@@ -36,7 +39,7 @@ switch($uri) {
     }
     break;
   
-  case 'myblogs':
+  case '/myblogs':
     if(!isset($_SESSION['username']) && !isset($_SESSION['password'])) {
       header("Location:http://www.site.com/login");
     }
@@ -45,16 +48,19 @@ switch($uri) {
     }
     break;
   
-  case 'editblog':
+  case '/editblog':
     if(!isset($_SESSION['username']) && !isset($_SESSION['password'])) {
       header("Location:http://www.site.com/login");
     }
-    else {
+    elseif(isset($_SESSION['username']) && isset($_SESSION['password']) && isset($_SESSION['edit'])){
       require_once('./controller/edit_blogs/editblogs_controller.php');
+    }
+    else {
+      header("Location:http://www.site.com/home");
     }
     break;
   
-  case 'addblog':
+  case '/addblog':
     if(!isset($_SESSION['username']) && !isset($_SESSION['password'])) {
       header("Location:http://www.site.com/login");
     }
@@ -63,11 +69,19 @@ switch($uri) {
     }
     break;
 
-  case 'delete':
-    require_once('./controller/myblogs/myblogs_controller.php');
+  case '/delete':
+    if(!isset($_SESSION['username']) && !isset($_SESSION['password'])) {
+      header("Location:http://www.site.com/home");
+    }
+    elseif(isset($_SESSION['username']) && isset($_SESSION['password']) && isset($_SESSION['id']) && isset($_SESSION['delete'])){
+      require_once('./controller/myblogs/myblogs_controller.php');
+    }
+    else {
+      header("Location:http://www.site.com/home");
+    }
     break;
 
-  case 'logout':
+  case '/logout':
     if(!isset($_SESSION['username']) && !isset($_SESSION['password'])) {
       header("Location:http://www.site.com/home");
     }

@@ -14,11 +14,18 @@ if(isset($_POST['username']) && !isset($_POST['register'])){
   $access=$obj_db->open_db_conn();
   $obj = new user_model($access);
   $availability=$obj->username_avail($user_name);
-  if($availability == true) {
-    $response="not available";
+  $username_check=preg_match("/^[A-Za-z@\-_0-9]+$/",$user_name);
+  
+  if(!$username_check) {
+    $response="Only letters,numbers and '@','_','-' are allowed";
   }
   else {
-    $response="available";
+    if($availability == true) {
+      $response="not available";
+    }
+    else {
+      $response="available";
+    }
   }
   echo $response;
 }

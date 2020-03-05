@@ -18,20 +18,23 @@ if($posts == false) {
 if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['read'])) {
   //session_start();
   $_SESSION['id']=$_POST['pass_id'];
+  $_SESSION['read']=$_POST['read'];
   header("Location:http://www.site.com/readblog");
 }
 elseif($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['edit'])) {
   //session_start();
   $_SESSION['id']=$_POST['pass_id'];
+  $_SESSION['edit']=$_POST['edit'];
   header("Location:http://www.site.com/editblog");
 }
 elseif($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['delete'])) {
   $_SESSION['id']=$_POST['pass_id'];
+  $_SESSION['delete']=$_POST['delete'];
   $id=$_SESSION['id'];
   $delete=$obj_model->delete_blog($id);
   if ($delete == true) {
     $del_succ="Blog deleted successfully";
-    header ('Refresh: 2; URL=http://www.site.com/myblogs');
+    header ('Refresh: 0.5; URL=http://www.site.com/myblogs');
   }
   else {
     echo $delete;

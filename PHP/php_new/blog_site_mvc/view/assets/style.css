@@ -99,7 +99,7 @@ label {
   left: 50%;
   transform: translate3d(-50%,-50%, 0);
   position: absolute;
-  margin-top: 100px;
+  margin-top: 150px;
   margin-bottom: 50px;
 }
 .g-recaptcha {
