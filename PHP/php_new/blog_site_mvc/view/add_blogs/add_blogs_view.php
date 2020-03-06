@@ -64,9 +64,11 @@
           id='title'
           maxlength="100"
           class="form-control"
+          value= "<?php if(isset($_POST['title'])) {echo $_POST['title'];} ?>"
           placeholder="Title goes here"
           required>
         <label for="content">Enter Content:</label>
+        <span class="error"><?php echo $contentErr;?></span>
         <textarea 
           rows='15'
           cols='40'
@@ -74,7 +76,7 @@
           id='content'
           class="form-control"
           placeholder='Content goes here'
-          required></textarea>
+          required><?php if(isset($_POST['content'])) {echo $_POST['content'];} ?></textarea>
           <script>CKEDITOR.replace( 'content' );</script>
         <label for="fileToUpload">Upload Image: </label>
         <input

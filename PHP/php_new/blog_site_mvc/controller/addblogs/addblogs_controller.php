@@ -6,7 +6,14 @@ use dbcon\db_conn;
 use blog\blogs_model;
 
 $imageErr="";
+$contentErr="";
+$errorFlag=0;
 if($_SERVER["REQUEST_METHOD"] == "POST") {
+	$content=$_POST['content'];
+	if(str_word_count($content)<300) {
+		$contentErr = "Blog content length should be minimmum 300 words";
+		$errorFlag++;
+	}
 	$image_path='';
 	$filename=$_FILES["fileToUpload"]["name"];
 	$temp_filename=$_FILES["fileToUpload"]["tmp_name"];
@@ -27,6 +34,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 		//echo "File is an image - " . $check["mime"] . ".";
 			if ($_FILES["fileToUpload"]["size"] > 3000000) {
 				$imageErr="maximmum image size is 3MB";
+				$errorFlag++;
 				$uploadOk = 0;
 			}
 			else {
@@ -37,6 +45,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 			//echo "File is not an image.";
 			$uploadOk = 0;
 			$imageErr="Please choose an image file";
+			$errorFlag++;
 		}
 	}
 	else {
@@ -52,6 +61,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 			}
 			else {
 				$imageErr = "Sorry, there was an error uploading your file.";
+				$errorFlag++;
 			}
 		}
 	}
@@ -61,7 +71,7 @@ $obj_db=new db_conn;
 $access=$obj_db->open_db_conn();
 $obj_model = new blogs_model($access);
 
-if($_SERVER["REQUEST_METHOD"] == "POST" && $imageErr=="") {
+if($_SERVER["REQUEST_METHOD"] == "POST" && $errorFlag==0) {
   //session_start();
   $title=$_POST['title'];
 	$title=addslashes($title);

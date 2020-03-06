@@ -93,6 +93,17 @@ label {
 #login {
   margin-top: 5px;
 }
+.form-group {
+  position: relative;
+}
+.toggle-password {
+  position: absolute;
+  top: 132px;
+  right: 6px;
+}
+.eye-icon-reg {
+  top: 372px;
+}
 .register-content {
   width: 450px;
   top:50%;

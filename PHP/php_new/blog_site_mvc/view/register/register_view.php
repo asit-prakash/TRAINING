@@ -10,6 +10,8 @@
     <link rel="stylesheet" type="text/css" href="../view/assets/style.css?v=1">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script type = "text/javascript" src="components/togglePassword.js?v=1"></script> 
     <title>
       REGISTER PAGE
     </title>
@@ -95,6 +97,7 @@
         title="Enter your email"
         required>
       <label for="password">Enter Password:</label>
+      <i toggle="#password" class="fa fa-eye toggle-password eye-icon-reg" ></i>
       <span id="password_response" class="error">* <?php echo $passwordErr;?></span>
         <input
         type="password"
@@ -121,7 +124,7 @@
         name="register"
         id="register"
         class="btn btn-primary "
-        value="Register">
+        value="Create">
         <div class="login-link">
           Already a user? <a href="http://www.site.com/login">Login</a>
         </div>

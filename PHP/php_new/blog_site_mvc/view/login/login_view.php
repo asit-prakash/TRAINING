@@ -9,6 +9,8 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="../view/assets/style.css?v=1">
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script type = "text/javascript" src="components/togglePassword.js?v=1"></script> 
     <title>
       LOGIN PAGE
     </title>
@@ -50,6 +52,7 @@
         maxlength="15"
         required>
         <label for="password">Enter Password:</label>
+        <i toggle="#password" class="fa fa-eye toggle-password" ></i>
         <input
         type="password"
         placeholder="Enter Password"
@@ -72,7 +75,7 @@
           <a href="http://www.site.com/home">Continue Without Login</a>
         </div>
         <div class="register">
-          Never have been here before? <a href="http://www.site.com/register">Register Here</a>
+          Never have been here before? <a href="http://www.site.com/register">Create New Account</a>
         </div>
       </form>
   </div>

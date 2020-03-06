@@ -66,6 +66,7 @@
           value='<?php echo $title; ?>'
           required>
         <label for="content">Enter Content:</label>
+        <span class="error"><?php echo $contentErr;?></span>
         <textarea 
           rows='15'
           cols='40'

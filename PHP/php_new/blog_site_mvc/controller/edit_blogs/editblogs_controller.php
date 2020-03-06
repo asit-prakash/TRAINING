@@ -15,7 +15,14 @@ $content=$posts[0]['CONTENT'];
 $img_path=$posts[0]['IMAGE'];
 
 $imageErr="";
+$contentErr="";
+$errorFlag=0;
 if($_SERVER["REQUEST_METHOD"] == "POST") {
+	$content=$_POST['content'];
+	if(str_word_count($content)<300) {
+		$contentErr = "Blog content length should be minimmum 300 words";
+		$errorFlag++;
+	}
 	$image_path='';
 	$filename=$_FILES["fileToUpload"]["name"];
 	$temp_filename=$_FILES["fileToUpload"]["tmp_name"];
@@ -37,6 +44,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 			if ($_FILES["fileToUpload"]["size"] > 3000000) {
 				$imageErr="maximmum image size is 3MB";
 				$uploadOk = 0;
+				$errorFlag++;
 			}
 			else {
 				$uploadOk = 1;
@@ -46,6 +54,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 			//echo "File is not an image.";
 			$uploadOk = 0;
 			$imageErr="Please choose an image file";
+			$errorFlag++;
 		}
 	}
 	else {
@@ -60,13 +69,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 				//echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
 			}
 			else {
-			echo "Sorry, there was an error uploading your file.";
+				$imageErr = "Sorry, there was an error uploading your file.";
+				$errorFlag++;
 			}
 		}
 	}
 }
 
-if($_SERVER["REQUEST_METHOD"] == "POST" && $imageErr == "") {
+if($_SERVER["REQUEST_METHOD"] == "POST" && $errorFlag == 0) {
   $upd_title=$_POST['title'];
 	$upd_title=addslashes($upd_title);
 	$upd_title = htmlspecialchars($upd_title);
